@@ -11,6 +11,20 @@ To install this theme:
 - Restart your Keycloak server
 - Navigate to your Keycloak server's administration console.  Select your realm, and go Realm Settings → Themes.  Select "adminlte" as your login theme.
 
+For welcome pages:
+
+```
+# ./standalone/configuration/standalone.xml
+# sed -i.bak 's/<\/theme>/    <welcomeTheme>ls-keycloak<\/welcomeTheme>\n            <\/theme>/'
+<theme>
+    <staticMaxAge>2592000</staticMaxAge>
+    <cacheThemes>true</cacheThemes>
+    <cacheTemplates>true</cacheTemplates>
+    <dir>${jboss.home.dir}/themes</dir>
+    <welcomeTheme>ls-keycloak</welcomeTheme>
+</theme>
+```
+
 ## Libraries
 
 This theme uses [AdminLTE](https://almsaeedstudio.com/themes/AdminLTE/index2.html), [Bootstrap 3](http://getbootstrap.com/), and [jQuery](https://jquery.com/).  This theme also uses several of the [plugins used by the AdminLTE library](https://almsaeedstudio.com/themes/AdminLTE/documentation/index.html#plugins).
